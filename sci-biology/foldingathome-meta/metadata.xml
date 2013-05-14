@@ -5,7 +5,10 @@
 <maintainer>
 	<email>saintdev@gmail.com</email>
 </maintainer>
-<longdescription>Folding@home meta ebuild for FAHClient, FAHControl and FAHViewer</longdescription>
+<longdescription>
+	Folding@home is a distributed computing project using volunteered
+	computer resources run by Pandegroup of Stanford University.
+</longdescription>
 <use>
 	<flag name="client">Install FAHClient</flag>
 	<flag name="control">Install the FAHControl utility</flag>
