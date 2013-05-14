@@ -14,8 +14,7 @@ HOMEPAGE="http://folding.stanford.edu/"
 SRC_URI="x86? ( ${MY_32B_URI} )
 	amd64? ( ${MY_64B_URI} )"
 
-# RESTRICT="fetch bindist strip"
-RESTRICT="primaryuri bindist strip"
+RESTRICT="fetch bindist strip"
 
 LICENSE=""
 SLOT="0"
