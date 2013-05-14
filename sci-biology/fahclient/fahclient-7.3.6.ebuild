@@ -35,7 +35,7 @@ I="opt/foldingathome"
 QA_PREBUILT="${I}/*"
 
 pkg_setup() {
-	enewuser foldingathome -1 -1 /var/lib/fahclient "-c 'Folding@home'"
+	enewuser foldingathome -1 -1 /var/lib/fahclient
 }
 
 src_install() {
