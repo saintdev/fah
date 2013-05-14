@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+	<email>saintdev@gmail.com</email>
+</maintainer>
+<longdescription>
+	A graphical monitor and control utility for the Folding@home client.
+	It gives an overview of running projects on the local and (optional) remote 
+	machines. Starting, stopping and pausing of the running projects is also 
+	possible, as is viewing the logs. It provides and Advanced and Expert view with
+	additional information and settings for enthusiasts and gurus.
+</longdescription>
+</pkgmetadata>
