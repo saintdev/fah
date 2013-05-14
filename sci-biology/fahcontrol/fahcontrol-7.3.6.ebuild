@@ -21,8 +21,10 @@ IUSE=""
 
 RESTRICT="fetch"
 
-RDEPEND="dev-python/libgnome-python:2
+RDEPEND="dev-python/pygobject[${PYTHON_USEDEP}]
+	dev-python/pygtk:2[${PYTHON_USEDEP}]
 	${PYTHON_DEPS}"
+# 	dev-python/libgnome-python:2"
 DEPEND="${RDEPEND}"
 
 S="${WORKDIR}"
