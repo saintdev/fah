@@ -25,7 +25,8 @@ IUSE=""
 RDEPEND="app-arch/bzip2
 	sys-devel/gcc
 	sys-libs/glibc
-	sys-libs/zlib"
+	sys-libs/zlib
+	!sci-biology/foldingathome"
 
 S="${WORKDIR}"
 
