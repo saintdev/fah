@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+<pkgmetadata>
+<maintainer>
+	<email>saintdev@gmail.com</email>
+</maintainer>
+<longdescription>
+	Folding@home 3D simulation viewer.  Connects to local or remote FAHClients 
+	and visualizes the running simulations.
+</longdescription>
+<!--
+<use>
+	<flag name="flag">Description of how USE='flag' affects this package</flag>
+	<flag name="userland_GNU">Description of how USERLAND='GNU' affects this
+		package</flag>
+	<flag name="aspell">Uses <pkg>app-text/aspell</pkg> for spell checking.
+		Requires an installed dictionary from <cat>app-dicts</cat></flag>
+</use>
+-->
+</pkgmetadata>
