@@ -34,9 +34,9 @@ I="opt/foldingathome"
 
 QA_PREBUILT="${I}/*"
 
-# pkg_setup() {
-# 	I="${EROOT}/${I}"
-# }
+pkg_setup() {
+	enewuser foldingathome -1 -1 /var/lib/fahclient "-c 'Folding@home'"
+}
 
 src_install() {
 	dodoc usr/share/doc/fahclient/{copyright,README,sample-config.xml,changelog.Debian.gz,changelog.gz}
@@ -64,10 +64,6 @@ exec ${I}/FAHClient "\$@"
 		fowners foldingathome:nogroup ${dir}
 		fperms 755 ${dir}
 	done
-}
-
-pkg_preinst() {
-	enewuser foldingathome -1 -1 /var/lib/fahclient "-c 'Folding@home'"
 }
 
 pkg_postinst() {
