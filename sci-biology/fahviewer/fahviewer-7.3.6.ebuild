@@ -33,6 +33,10 @@ S="${WORKDIR}"
 
 I="opt/foldingathome"
 
+pkg_setup() {
+	I="${EROOT}/${I}"
+}
+
 src_install() {
 	exeinto ${I}
 	doexe usr/bin/FAHViewer
