@@ -6,18 +6,15 @@
 start() {
 	ebegin "Starting Folding@home"
 
-	start-stop-daemon --chdir /var/lib/fahclient --user foldingathome --nicelevel ${FAHCLIENT_NICE:-19} \
-		--start --background --exec /opt/foldingathome/FAHClient -- --daemon --config "${FAHCLIENT_CONFIG}" \
-		--pid-file "${FAHCLIENT_PIDFILE}" --log /var/lib/fahclient/log.txt ${FAHCLIENT_OPTS}
+	start-stop-daemon --start --chdir /var/lib/fahclient --user foldingathome \
+		--nicelevel ${FAHCLIENT_NICE:-19} --make-pidfile --pidfile "${FAHCLIENT_PIDFILE}" \
+		--background --exec /opt/foldingathome/FAHClient -- --service --respawn \
+		--config "${FAHCLIENT_CONFIG}" ${FAHCLIENT_OPTS}
 	eend $?
 }
 
 stop() {
 	ebegin "Stopping Folding@home"
 	start-stop-daemon --stop --user foldingathome --pidfile "${FAHCLIENT_PIDFILE}"
-#	if [ $? -ne 0 ]; then
-#		killall --user foldingathome --signal SIGKILL
-#		ewarn "killing all processes running as user 'foldingathome' ..."
-#	fi
 	eend $?
 }

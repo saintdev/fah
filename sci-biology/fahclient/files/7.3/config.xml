@@ -1,0 +1,8 @@
+<config>
+  <!-- Minimal default config.xml -->
+  
+  <!-- User Information -->
+  <user value='Anonymous'/>
+  <team value='0'/>
+  <passkey value=''/>
+</config>

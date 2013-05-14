@@ -60,10 +60,14 @@ exec ${I}/FAHClient "\$@"
 	newconfd "${FILESDIR}"/$(get_version_component_range 1-2)/conf.d fahclient
 	newinitd "${FILESDIR}"/$(get_version_component_range 1-2)/init.d fahclient
 	
+	insinto /etc/foldingathome
+	doins "${FILESDIR}"/$(get_version_component_range 1-2)/config.xml
+	
+	keepdir /var/lib/fahclient
+	
 	for dir in "/var/lib/fahclient" "/etc/foldingathome" ; do
-		keepdir ${dir}
-		fowners foldingathome:nogroup ${dir}
-		fperms 755 ${dir}
+		fowners -R foldingathome:nogroup "${dir}"
+		fperms 755 "${dir}"
 	done
 }
 
@@ -71,13 +75,7 @@ pkg_postinst() {
 	einfo "To run Folding@home in the background at boot:"
 	einfo "\trc-update add fahclient default"
 	einfo ""
-# 	if [ ! -e "${I}"/config.xml ]; then
-# 		elog "No configuration found -- please run ${I}/initfolding or"
-# 		elog "emerge --config ${P} to configure your client and edit"
-# 		elog "${EROOT}/etc/conf.d/foldingathome for options"
-# 	fi
+	einfo "If this is your first time installing, you should visit"
+	einfo "http://folding.stanford.edu/client after starting the client"
+	einfo "to configure it."
 }
- 
-# pkg_config() {
-# 	"${I}"/initfolding
-# }
