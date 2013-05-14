@@ -9,7 +9,7 @@ MY_BASEURI="https://fah.stanford.edu/file-releases/public/release/fahclient/"
 MY_64B_URI="${MY_BASEURI}/debian-testing-64bit/v$(get_version_component_range 1-2)/fahclient_${PV}_amd64.deb"
 MY_32B_URI="${MY_BASEURI}/debian-testing-32bit/v$(get_version_component_range 1-2)/fahclient_${PV}_i386.deb"
 
-DESCRIPTION="Folding@Home is a distributed computing project for protein folding."
+DESCRIPTION="Folding@home Console Client"
 HOMEPAGE="http://folding.stanford.edu/FAQ-SMP.html"
 SRC_URI="x86? ( ${MY_32B_URI} )
 	amd64? ( ${MY_64B_URI} )"

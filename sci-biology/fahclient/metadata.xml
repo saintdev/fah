@@ -6,4 +6,9 @@
 	<email>axs@gentoo.org</email>
 	<name>Ian Stakenvicius</name>
 </maintainer>
+<longdescription>
+	Console client which is used to download and run Folding@home work units. 
+	To monitor and control the console client it is best to use the Graphical User Interface 
+	called FAHControl, provided in a separate package.
+</longdescription>
 </pkgmetadata>
