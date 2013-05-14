@@ -34,7 +34,7 @@ S="${WORKDIR}"
 I="opt/foldingathome"
 
 pkg_setup() {
-	I="${EROOT}/${I}"
+	I="${EROOT}${I}"
 }
 
 src_install() {
