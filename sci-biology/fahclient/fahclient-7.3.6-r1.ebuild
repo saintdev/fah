@@ -57,15 +57,15 @@ exec ${I}/FAHClient "\$@"
 	EOF
 	fperms +x /usr/bin/FAHClient
 
-	newconfd "${FILESDIR}"/$(get_version_component_range 1-2)/conf.d fahclient
-	newinitd "${FILESDIR}"/$(get_version_component_range 1-2)/init.d fahclient
+	newconfd "${FILESDIR}"/$(get_version_component_range 1-2)/conf.d FAHClient
+	newinitd "${FILESDIR}"/$(get_version_component_range 1-2)/init.d FAHClient
 	
-	insinto /etc/foldingathome
+	insinto /etc/fahclient
 	doins "${FILESDIR}"/$(get_version_component_range 1-2)/config.xml
 	
 	keepdir /var/lib/fahclient
 	
-	for dir in "/var/lib/fahclient" "/etc/foldingathome" ; do
+	for dir in "/var/lib/fahclient" "/etc/fahclient" ; do
 		fowners -R foldingathome:nogroup "${dir}"
 		fperms 755 "${dir}"
 	done
@@ -73,9 +73,11 @@ exec ${I}/FAHClient "\$@"
 
 pkg_postinst() {
 	einfo "To run Folding@home in the background at boot:"
-	einfo "\trc-update add fahclient default"
+	einfo "\trc-update add FAHClient default"
 	einfo ""
-	einfo "If this is your first time installing, you should visit"
-	einfo "http://folding.stanford.edu/client after starting the client"
-	einfo "to configure it."
+	einfo "If this is your first time installing the client, you should visit"
+	einfo "http://folding.stanford.edu/client or use FAHControl, after starting"
+	einfo "the client, to configure it."
+	einfo ""
+	einfo "If you would like to join the Gentoo folding team, it is team 36480."
 }
