@@ -19,8 +19,7 @@ KEYWORDS="~amd64 ~x86"
 
 IUSE=""
 
-# RESTRICT="fetch"
-RESTRICT="primaryuri"
+RESTRICT="fetch"
 
 RDEPEND="dev-python/libgnome-python:2
 	${PYTHON_DEPS}"
