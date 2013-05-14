@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pkgmetadata SYSTEM "http://www.gentoo.org/dtd/metadata.dtd">
+
+<pkgmetadata>
+<maintainer>
+	<email>saintdev@gmail.com</email>
+</maintainer>
+<longdescription>Folding@home meta ebuild for FAHClient, FAHControl and FAHViewer</longdescription>
+<use>
+	<flag name="client">Install FAHClient</flag>
+	<flag name="control">Install the FAHControl utility</flag>
+	<flag name="viewer">Install FAHViewer for visualizing the folding process</flag>
+</use>
+</pkgmetadata>
