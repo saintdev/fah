@@ -11,7 +11,7 @@ HOMEPAGE="http://folding.stanford.edu/"
 
 SRC_URI="https://fah.stanford.edu/file-releases/public/release/fahcontrol/debian-testing-64bit/v7.3/fahcontrol_7.3.6-1_all.deb"
 
-LICENSE=""
+LICENSE="GPL-3"
 
 SLOT="0"
 
@@ -30,8 +30,8 @@ DEPEND="${RDEPEND}"
 S="${WORKDIR}"
 
 impl_src_install() {
-	dodir $(python_get_sitedir)
-	cp -R "${S}"/usr/share/pyshared/fah/ "${D}/$(python_get_sitedir)"
+	insinto $(python_get_sitedir)
+	doins -r usr/share/pyshared/fah/
 }
 
 src_install() {
