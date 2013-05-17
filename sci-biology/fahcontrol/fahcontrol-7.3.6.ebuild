@@ -46,5 +46,5 @@ src_install() {
 	make_desktop_entry FAHControl FAHControl FAHControl "" \
 		"StartupNotify=false\nTerminal=false"
 
-	dodoc usr/share/doc/fahcontrol/{changelog.Debian.gz,changelog.gz,copyright}
+	dodoc usr/share/doc/fahcontrol/{changelog.Debian.gz,changelog.gz}
 }
