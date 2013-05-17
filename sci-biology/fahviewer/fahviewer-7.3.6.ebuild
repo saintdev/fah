@@ -55,7 +55,8 @@ exec ${I}/FAHViewer "\$@"
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHViewer-64.png
 
-	domenu usr/share/applications/FAHViewer.desktop
+	make_desktop_entry FAHViewer FAHViewer FAHViewer-64 "" \
+		"StartupNotify=false\nTerminal=false"
 
 	dodoc usr/share/doc/fahviewer/{README,changelog.Debian.gz,changelog.gz}
 }
