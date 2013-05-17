@@ -14,9 +14,9 @@ HOMEPAGE="http://folding.stanford.edu/FAQ-SMP.html"
 SRC_URI="x86? ( ${MY_32B_URI} )
 	amd64? ( ${MY_64B_URI} )"
 
-RESTRICT="fetch bindist strip"
+RESTRICT="mirror bindist strip"
 
-LICENSE="FAH-EULA-2009"
+LICENSE="FAH-EULA-2009 FAH-special-permission"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 IUSE=""
@@ -37,10 +37,13 @@ QA_PREBUILT="${I}/*"
 pkg_setup() {
 	I="${EROOT}${I}"
 	enewuser foldingathome -1 -1 /var/lib/fahclient
+	einfo ""
+	cat "${PORTDIR}"/licenses/FAH-special-permission
+	einfo ""
 }
 
 src_install() {
-	dodoc usr/share/doc/fahclient/{copyright,README,sample-config.xml,changelog.Debian.gz,changelog.gz}
+	dodoc usr/share/doc/fahclient/{README,sample-config.xml,changelog.Debian.gz,changelog.gz}
 
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHClient.png
