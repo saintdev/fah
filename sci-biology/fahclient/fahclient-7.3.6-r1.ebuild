@@ -49,6 +49,7 @@ src_install() {
 
 	exeinto "${I}"
 	doexe usr/bin/{FAHClient,FAHCoreWrapper}
+	doexe "${FILESDIR}"/$(get_version_component_range 1-2)/FAHInit
 
 	dodir /usr/bin
 	cat <<-EOF > "${D}"/usr/bin/FAHClient
@@ -78,6 +79,12 @@ pkg_postinst() {
 	einfo "If this is your first time installing the client, you should visit"
 	einfo "http://folding.stanford.edu/client or use FAHControl, after starting"
 	einfo "the client, to configure it."
+	elog  "Optionally, you can run emerge --config ${P} or"
+	elog  "${I}/FAHInit"
 	einfo ""
 	einfo "If you would like to join the Gentoo folding team, it is team 36480."
+}
+
+pkg_config() {
+	"${I}"/FAHInit
 }

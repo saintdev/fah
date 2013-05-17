@@ -1,0 +1,7 @@
+#!/bin/sh
+
+. /etc/conf.d/FAHClient
+
+cd /var/lib/fahclient
+su -c '/usr/bin/FAHClient --configure' foldingathome
+mv -i /var/lib/fahclient/config.xml "${FAHCLIENT_CONFIG}"
