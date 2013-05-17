@@ -8,7 +8,7 @@ inherit eutils
 DESCRIPTION="Folding@home meta ebuild"
 HOMEPAGE="http://folding.stanford.edu/"
 
-LICENSE=""
+LICENSE="metapackage"
 
 SLOT="0"
 
