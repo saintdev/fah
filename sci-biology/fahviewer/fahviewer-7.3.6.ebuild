@@ -16,6 +16,10 @@ SRC_URI="x86? ( ${MY_32B_URI} )
 
 RESTRICT="fetch bindist strip"
 
+# SOME kind of source is available in fahviewer_X.y.z-XXbit-release.tar.bz2
+# The copyright file claims it is GPLv2, however parts of the build system
+# seem to be missing (as of 7.3.6). So it is not clear if this is the complete
+# source.
 LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
