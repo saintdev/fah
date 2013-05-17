@@ -36,14 +36,14 @@ impl_src_install() {
 
 src_install() {
 	python_foreach_impl impl_src_install
-	
+
 	dobin usr/bin/FAHControl
 	python_replicate_script "${D}"/usr/bin/FAHControl
-	
+
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHControl.png
-	
+
 	domenu usr/share/applications/FAHControl.desktop
-	
+
 	dodoc usr/share/doc/fahcontrol/{changelog.Debian.gz,changelog.gz,copyright}
 }
