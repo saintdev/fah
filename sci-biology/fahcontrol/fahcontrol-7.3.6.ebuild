@@ -43,7 +43,8 @@ src_install() {
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHControl.png
 
-	domenu usr/share/applications/FAHControl.desktop
+	make_desktop_entry FAHControl FAHControl FAHControl "" \
+		"StartupNotify=false\nTerminal=false"
 
 	dodoc usr/share/doc/fahcontrol/{changelog.Debian.gz,changelog.gz,copyright}
 }
