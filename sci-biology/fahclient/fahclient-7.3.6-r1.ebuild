@@ -41,15 +41,15 @@ pkg_setup() {
 
 src_install() {
 	dodoc usr/share/doc/fahclient/{copyright,README,sample-config.xml,changelog.Debian.gz,changelog.gz}
-	
+
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHClient.png
-	
+
 	domenu usr/share/applications/FAHWebControl.desktop
-	
+
 	exeinto "${I}"
 	doexe usr/bin/{FAHClient,FAHCoreWrapper}
-	
+
 	dodir /usr/bin
 	cat <<-EOF > "${D}"/usr/bin/FAHClient
 #!/bin/sh
@@ -59,12 +59,12 @@ exec ${I}/FAHClient "\$@"
 
 	newconfd "${FILESDIR}"/$(get_version_component_range 1-2)/conf.d FAHClient
 	newinitd "${FILESDIR}"/$(get_version_component_range 1-2)/init.d FAHClient
-	
+
 	insinto /etc/fahclient
 	doins "${FILESDIR}"/$(get_version_component_range 1-2)/config.xml
-	
+
 	keepdir /var/lib/fahclient
-	
+
 	for dir in "/var/lib/fahclient" "/etc/fahclient" ; do
 		fowners -R foldingathome:nogroup "${dir}"
 		fperms 755 "${dir}"
