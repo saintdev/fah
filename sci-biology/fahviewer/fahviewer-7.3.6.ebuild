@@ -16,7 +16,7 @@ SRC_URI="x86? ( ${MY_32B_URI} )
 
 RESTRICT="fetch bindist strip"
 
-LICENSE=""
+LICENSE="GPL-2"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -53,5 +53,5 @@ exec ${I}/FAHViewer "\$@"
 	
 	domenu usr/share/applications/FAHViewer.desktop
 	
-	dodoc usr/share/doc/fahviewer/{README,changelog.Debian.gz,changelog.gz,copyright}
+	dodoc usr/share/doc/fahviewer/{README,changelog.Debian.gz,changelog.gz}
 }
