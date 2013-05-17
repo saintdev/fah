@@ -40,18 +40,18 @@ pkg_setup() {
 src_install() {
 	exeinto ${I}
 	doexe usr/bin/FAHViewer
-	
+
 	dodir /usr/bin
 	cat <<-EOF > "${D}"/usr/bin/FAHViewer
 #!/bin/sh
 exec ${I}/FAHViewer "\$@"
 	EOF
 	fperms +x /usr/bin/FAHViewer
-	
+
 	insinto /usr/share/pixmaps
 	doins usr/share/pixmaps/FAHViewer-64.png
-	
+
 	domenu usr/share/applications/FAHViewer.desktop
-	
+
 	dodoc usr/share/doc/fahviewer/{README,changelog.Debian.gz,changelog.gz}
 }
