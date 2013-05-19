@@ -1,0 +1,34 @@
+From 91e76fd73af5f87c5a81db17cba36c5dce026fb0 Mon Sep 17 00:00:00 2001
+From: Nathan Caldwell <saintdev@gmail.com>
+Date: Sat, 18 May 2013 20:18:31 -0600
+Subject: [PATCH] Remove .deb Package from SConstruct
+
+---
+ SConstruct | 14 --------------
+ 1 file changed, 14 deletions(-)
+
+diff --git a/SConstruct b/SConstruct
+index bb7eb13..f2a87bf 100644
+--- a/SConstruct
++++ b/SConstruct
+@@ -135,17 +135,3 @@ docs = ['README', 'COPYING']
+ install.append(env.Install(dir = prefix + '/share/doc/cbang', source = docs))
+ 
+ env.Alias('install', install)
+-
+-
+-# .deb Package
+-if env.GetPackageType() == 'deb':
+-    arch = env.GetPackageArch()
+-    pkg = 'libcbang%s_%s_%s.deb' % (libversion, version, arch)
+-    dev = 'libcbang%s-dev_%s_%s.deb' % (libversion, version, arch)
+-
+-    env['ENV']['DEB_DEST_DIR'] = '1'
+-    cmd = env.Command([pkg, dev], libs, 'fakeroot debian/rules binary')
+-    env.Alias('package', cmd)
+-
+-    # Write package.txt
+-    env.WriteStringToFile('package.txt', [pkg, dev])
+-- 
+1.8.2.1
+
