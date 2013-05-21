@@ -15,7 +15,7 @@ SLOT="0"
 
 KEYWORDS=""
 
-IUSE="static"
+IUSE="+static"
 
 RDEPEND="app-arch/bzip2
 	sys-libs/zlib
