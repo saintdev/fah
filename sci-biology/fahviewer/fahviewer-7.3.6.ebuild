@@ -3,11 +3,13 @@
 # $Header: $
 EAPI=5
 
-inherit eutils unpacker versionator
+inherit eutils rpm versionator
 
+# Source is available in fahviewer_X.y.z-XXbit-release.tar.bz2, but parts of the build
+# system are missing.
 MY_BASEURI="https://fah.stanford.edu/file-releases/public/release/fahviewer"
-MY_64B_URI="${MY_BASEURI}/debian-testing-64bit/v$(get_version_component_range 1-2)/fahviewer_${PV}_amd64.deb"
-MY_32B_URI="${MY_BASEURI}/debian-testing-32bit/v$(get_version_component_range 1-2)/fahviewer_${PV}_i386.deb"
+MY_64B_URI="${MY_BASEURI}/centos-5.3-64bit/v$(get_version_component_range 1-2)/fahviewer-${PV}-1.x86_64.rpm"
+MY_32B_URI="${MY_BASEURI}/centos-5.5-32bit/v$(get_version_component_range 1-2)/fahviewer-${PV}-1.i686.rpm"
 
 DESCRIPTION="Folding@home 3D Simulation Viewer"
 HOMEPAGE="http://folding.stanford.edu/"
@@ -16,11 +18,7 @@ SRC_URI="x86? ( ${MY_32B_URI} )
 
 RESTRICT="fetch bindist strip"
 
-# SOME kind of source is available in fahviewer_X.y.z-XXbit-release.tar.bz2
-# The copyright file claims it is GPLv2, however parts of the build system
-# seem to be missing (as of 7.3.6). So it is not clear if this is the complete
-# source.
-LICENSE="GPL-2"
+LICENSE="GPL-2+"
 SLOT="0"
 KEYWORDS="~amd64 ~x86"
 
@@ -37,12 +35,14 @@ S="${WORKDIR}"
 
 I="opt/foldingathome"
 
+QA_PREBUILT="${I}/FAHViewer"
+
 pkg_setup() {
 	I="${EROOT}${I}"
 }
 
 src_install() {
-	exeinto ${I}
+	exeinto "${I}"
 	doexe usr/bin/FAHViewer
 
 	dodir /usr/bin
@@ -58,5 +58,5 @@ exec ${I}/FAHViewer "\$@"
 	make_desktop_entry FAHViewer FAHViewer FAHViewer-64 "" \
 		"StartupNotify=false\nTerminal=false"
 
-	dodoc usr/share/doc/fahviewer/{README,changelog.Debian.gz,changelog.gz}
+	dodoc usr/share/doc/fahviewer/{README,ChangeLog}
 }
